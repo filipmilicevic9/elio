@@ -1,0 +1,24 @@
+/* =====================================================
+   ELIO — variables.css
+   CSS promenljive — boje, senke, poluprečnici.
+   Belo + tamni detalji + plavi akcenti (premium B2B stil).
+   ===================================================== */
+
+:root{
+  --blue:#1E6FEB;
+  --blue-deep:#0B47A8;
+  --blue-soft:#E9F1FE;
+  --blue-glow:rgba(30,111,235,.35);
+  --ink:#0A1220;
+  --ink-2:#3B4656;
+  --ink-3:#71808F;
+  --bg:#FFFFFF;
+  --bg-soft:#F6F8FB;
+  --line:#E4E9F0;
+  --alu:#C9CFD6;
+  --alu-dark:#8E97A1;
+  --black:#101418;
+  --radius:20px;
+  --shadow-lg:0 30px 80px -20px rgba(10,18,32,.18);
+  --shadow-sm:0 8px 24px -8px rgba(10,18,32,.12);
+}

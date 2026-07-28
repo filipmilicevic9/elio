@@ -1,0 +1,25 @@
+/* =====================================================
+   ELIO — components.css
+   Komponente za višekratnu upotrebu — dugmad i FAQ harmonika.
+   ===================================================== */
+
+/* ---------- dugmad ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;gap:.55rem;font-family:'Manrope',sans-serif;font-weight:700;font-size:.95rem;padding:1rem 1.9rem;border-radius:14px;border:1.5px solid transparent;cursor:pointer;transition:transform .2s cubic-bezier(.2,.8,.3,1), box-shadow .2s, background .2s, color .2s;overflow:hidden}
+.btn:focus-visible{outline:3px solid var(--blue-glow);outline-offset:2px}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 10px 26px -8px var(--blue-glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -8px var(--blue-glow);background:var(--blue-deep)}
+.btn-primary:active{transform:translateY(0)}
+.btn-secondary{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:var(--shadow-sm)}
+.btn-secondary:hover{transform:translateY(-2px);border-color:var(--blue);color:var(--blue)}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:50rem;margin:0 auto}
+.faq-item{border:1px solid var(--line);border-radius:18px;margin-bottom:.9rem;background:#fff;overflow:hidden;transition:box-shadow .25s,border-color .25s}
+.faq-item[open]{box-shadow:var(--shadow-sm);border-color:var(--blue-soft)}
+.faq-item summary{list-style:none;cursor:pointer;padding:1.25rem 1.6rem;font-family:'Manrope',sans-serif;font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;gap:1.2rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item .chev{width:34px;height:34px;border-radius:50%;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s,background .25s,color .25s}
+.faq-item[open] .chev{transform:rotate(45deg);background:var(--blue);color:#fff}
+.faq-item .answer{padding:0 1.6rem 1.4rem;color:var(--ink-3);font-size:.94rem;max-width:44rem}

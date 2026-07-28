@@ -1,0 +1,143 @@
+/* =====================================================
+   ELIO — sections.css
+   Sekcije stranice — hero, traka poverenja, proces (kako radi),
+   prednosti, primena, tehničke karakteristike, galerija, video,
+   kontakt i footer.
+   ===================================================== */
+
+/* ---------- hero ---------- */
+.hero{display:flex;align-items:center;min-height:calc(100vh - 70px);padding:6.75rem 0 2.5rem;position:relative;overflow:hidden;background:linear-gradient(180deg,#F8FAFD 0%,#fff 85%)}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-bg .grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;opacity:.35;mask-image:radial-gradient(ellipse 70% 60% at 65% 40%,#000 30%,transparent 75%)}
+.hero-bg .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+.orb-1{width:520px;height:520px;background:radial-gradient(circle,rgba(30,111,235,.22),transparent 65%);top:-10%;right:-8%}
+.orb-2{width:420px;height:420px;background:radial-gradient(circle,rgba(30,111,235,.12),transparent 65%);bottom:-16%;left:-8%}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:3.5rem;align-items:center;position:relative}
+.hero-copy{transform:translateY(-3.25rem)}
+.hero-copy .eyebrow{margin-bottom:.6rem}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem);margin-bottom:.7rem}
+.hero h1 .accent{color:var(--blue)}
+.hero-highlight{font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(1rem,1.6vw,1.2rem);color:var(--blue-deep);letter-spacing:-.01em;margin-bottom:.8rem}
+.hero .lead{font-size:1.13rem;color:var(--ink-3);max-width:35rem;margin-bottom:1.3rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.3rem}
+.hero-meta{display:flex;gap:2.5rem;flex-wrap:wrap}
+.hero-meta div strong{font-family:'Manrope',sans-serif;font-weight:800;font-size:1.5rem;display:block;letter-spacing:-.02em}
+.hero-meta div span{font-size:.83rem;color:var(--ink-3)}
+.hero-device{position:relative;display:flex;justify-content:center}
+.hero-device .device-svg{width:min(480px,100%);height:auto;filter:drop-shadow(0 34px 52px rgba(10,18,32,.22))}
+.hero-badge{position:absolute;background:rgba(255,255,255,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.9);border-radius:14px;box-shadow:var(--shadow-sm);padding:.7rem 1rem;font-size:.8rem;font-weight:600;display:flex;align-items:center;gap:.55rem}
+.hero-badge .dot{width:9px;height:9px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+.badge-1{top:8%;left:2%}
+.badge-2{bottom:14%;right:0%}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--ink-3);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+.scroll-hint .line{width:1.5px;height:38px;background:linear-gradient(var(--blue),transparent);animation:scrollLine 1.8s ease-in-out infinite}
+
+/* ---------- traka poverenja ---------- */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:1.4rem 0;overflow:hidden}
+.trust-track{display:flex}
+.trust-set{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;color:var(--ink-3);font-size:.85rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;flex:1}
+.trust-set + .trust-set{display:none}
+.trust span{display:flex;align-items:center;gap:.55rem}
+.trust svg{width:16px;height:16px;color:var(--blue)}
+
+/* ---------- proces / animacija ---------- */
+.sec-kako-radi{padding:5.5rem 0 3rem}
+#kako-radi + .section-head{max-width:56rem;margin-bottom:1.4rem}
+#kako-radi + .section-head .eyebrow{margin-bottom:.5rem}
+#kako-radi + .section-head h2{margin-bottom:.5rem}
+.process-wrap{display:grid;grid-template-columns:1fr 400px;gap:2.5rem;align-items:center}
+.process-stage{background:linear-gradient(180deg,#FBFCFE 0%,#F2F5FA 100%);border:1px solid var(--line);border-radius:28px;padding:1.6rem;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.process-stage::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 50% 100%,rgba(30,111,235,.07),transparent 70%)}
+.process-stage svg{position:relative}
+.process-steps{display:flex;flex-direction:column;gap:.18rem}
+.p-step{display:flex;gap:.8rem;padding:.42rem .75rem;border-radius:14px;border:1.5px solid transparent;transition:background .3s,border-color .3s,opacity .3s;opacity:.45}
+.p-step .p-num{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:.72rem;color:var(--ink-3);background:#fff;transition:.3s}
+.p-step h4{font-size:.88rem;font-weight:700;margin-bottom:0;line-height:1.25}
+.p-step p{font-size:.78rem;color:var(--ink-3);line-height:1.3}
+.p-step.active{opacity:1;background:#fff;border-color:var(--blue-soft);box-shadow:var(--shadow-sm)}
+.p-step.active .p-num{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 0 5px var(--blue-soft)}
+.process-note{margin-top:.6rem;padding:.5rem .85rem;background:var(--blue-soft);border-radius:14px;font-size:.78rem;line-height:1.35;color:var(--blue-deep);display:flex;gap:.55rem;align-items:flex-start}
+.process-note svg{width:16px;height:16px;flex-shrink:0;margin-top:.1rem}
+
+/* ---------- prednosti ---------- */
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.adv{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2rem 1.8rem;transition:transform .25s cubic-bezier(.2,.8,.3,1),box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
+.adv::after{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue-deep));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.adv:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
+.adv:hover::after{transform:scaleX(1)}
+.adv .ic{width:48px;height:48px;border-radius:14px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem}
+.adv .ic svg{width:24px;height:24px}
+.adv h3{font-size:1.06rem;margin-bottom:.5rem;font-weight:700}
+.adv p{font-size:.92rem;color:var(--ink-3)}
+
+/* ---------- gde se koristi ---------- */
+.sec-primena{min-height:100vh}
+.use-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.4rem}
+.use{position:relative;border-radius:var(--radius);padding:1.6rem 1.5rem;background:var(--black);color:#fff;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s cubic-bezier(.2,.8,.3,1)}
+.use::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 20% 0%,rgba(30,111,235,.32),transparent 60%);opacity:.7;transition:opacity .3s}
+.use:hover{transform:translateY(-6px)}
+.use:hover::before{opacity:1}
+.use .u-ic{position:relative;width:34px;height:34px;color:#7FB0FF;opacity:.95;margin-bottom:1.1rem}
+.use h3{font-size:1.02rem;margin-bottom:.45rem;position:relative}
+.use p{font-size:.83rem;color:#9AA8BC;position:relative;line-height:1.45}
+
+/* ---------- tehničke karakteristike ---------- */
+.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.tech-visual{background:linear-gradient(160deg,var(--black) 0%,#1B2432 100%);border-radius:28px;padding:2.5rem;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.tech-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 70% 20%,rgba(30,111,235,.25),transparent 65%)}
+.tech-list{display:grid;gap:0}
+.tech-row{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;padding:1.05rem .3rem;border-bottom:1px solid var(--line)}
+.tech-row:last-child{border-bottom:none}
+.tech-row dt{color:var(--ink-3);font-size:.92rem}
+.tech-row dd{font-family:'Manrope',sans-serif;font-weight:700;font-size:1rem;text-align:right}
+.tech-note{margin-top:1.2rem;font-size:.82rem;color:var(--ink-3)}
+
+/* ---------- galerija ---------- */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.g-item{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#fff;transition:transform .25s cubic-bezier(.2,.8,.3,1),box-shadow .25s}
+.g-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.g-item .g-img{aspect-ratio:4/3;overflow:hidden;background:linear-gradient(160deg,#EEF2F8,#E2E9F2)}
+.g-item .g-img svg{width:100%;height:100%;transition:transform .5s cubic-bezier(.2,.8,.3,1)}
+.g-item:hover .g-img svg{transform:scale(1.06)}
+.g-item figcaption{padding:1rem 1.3rem;font-size:.88rem;font-weight:600;color:var(--ink-2)}
+
+/* ---------- video ---------- */
+.video-shell{position:relative;border-radius:28px;overflow:hidden;background:linear-gradient(150deg,var(--black),#1B2432);aspect-ratio:16/8.2;box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.video-shell::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(30,111,235,.28),transparent 65%)}
+.play-btn{position:relative;width:92px;height:92px;border-radius:50%;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1.5px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;transition:transform .25s,background .25s}
+.play-btn::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:1.5px solid rgba(255,255,255,.22);animation:pulseRing 2.4s ease-out infinite}
+.video-shell:hover .play-btn{transform:scale(1.08);background:rgba(30,111,235,.4)}
+.play-btn svg{width:30px;height:30px;color:#fff;margin-left:5px}
+.video-caption{position:absolute;bottom:1.8rem;left:0;right:0;text-align:center;color:#B9C6D8;font-size:.88rem;letter-spacing:.04em}
+.video-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem;max-width:58rem;margin-left:auto;margin-right:auto}
+.video-info{display:flex;align-items:center;gap:.9rem;background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.1rem 1.3rem;box-shadow:var(--shadow-sm)}
+.video-info .ic{width:40px;height:40px;border-radius:11px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.video-info .ic svg{width:20px;height:20px}
+.video-info span{font-weight:700;font-size:.92rem;color:var(--ink)}
+
+/* ---------- kontakt ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:start}
+.contact-info h3{font-size:1.5rem;margin-bottom:1rem}
+.contact-info>p{color:var(--ink-3);margin-bottom:2rem;max-width:26rem}
+.c-line{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem;font-weight:600;font-size:.95rem}
+.c-line .ic{width:44px;height:44px;border-radius:13px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-line .ic svg{width:20px;height:20px}
+.c-line small{display:block;font-weight:400;color:var(--ink-3);font-size:.78rem}
+form{background:#fff;border:1px solid var(--line);border-radius:24px;padding:2.2rem;box-shadow:var(--shadow-lg)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+form label{display:block;font-size:.82rem;font-weight:600;margin-bottom:.4rem;color:var(--ink-2)}
+form input,form textarea{width:100%;padding:.85rem 1rem;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:.94rem;margin-bottom:1.15rem;transition:border-color .2s,box-shadow .2s;background:var(--bg-soft)}
+form input:focus,form textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px var(--blue-soft);background:#fff}
+.form-status{font-size:.9rem;color:var(--blue);font-weight:600;margin-top:.9rem;display:none}
+
+/* ---------- footer ---------- */
+footer{background:var(--black);color:#8D9AAC;padding:4rem 0 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem}
+.footer-grid .logo{color:#fff;margin-bottom:1rem}
+.footer-grid>div>p{font-size:.9rem;max-width:20rem}
+.footer-grid h4{color:#fff;font-size:.9rem;margin-bottom:1rem;font-weight:700}
+.footer-grid ul{list-style:none}
+.footer-grid li{margin-bottom:.6rem;font-size:.88rem}
+.footer-grid a{transition:color .2s}
+.footer-grid a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.09);padding-top:1.6rem;font-size:.8rem;display:flex;justify-content:center;flex-wrap:wrap;gap:.8rem}

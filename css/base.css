@@ -1,0 +1,11 @@
+/* =====================================================
+   ELIO — base.css
+   Osnova — reset, tipografija, globalni elementi.
+   ===================================================== */
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif;line-height:1.12;letter-spacing:-.02em;font-weight:800}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
