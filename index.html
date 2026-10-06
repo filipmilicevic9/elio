@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="css/sections.css">
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/device-viewer.css">
 </head>
 <body>
 
@@ -72,8 +73,14 @@
     </div>
 
     <div class="hero-device">
-      <!-- Uređaj: fotografija ELIO uređaja -->
-      <img class="device-svg" src="assets/images/uredjaj.jpg" alt="ELIO uređaj — kompaktno crno kućište sa aluminijumskim detaljima, LCD ekranom i platformom za stajanje" width="1200" height="1074" loading="eager">
+      <div class="device-viewer">
+        <button class="device-toggle" type="button" aria-pressed="false" aria-label="Prikaži unutrašnjost uređaja" aria-describedby="device-hint">
+          <img class="device-closed" src="assets/images/uredjaj-zatvoren.webp" alt="Sklopljen ELIO uređaj" width="1672" height="941" fetchpriority="high">
+          <img class="device-open" src="assets/images/uredjaj-otvoren.webp" alt="Rasklopljen prikaz unutrašnjih delova uređaja" width="1672" height="941" aria-hidden="true">
+        </button>
+        <p id="device-hint" class="device-hint">Pređite mišem ili dodirnite uređaj da vidite unutrašnjost.</p>
+        <button class="device-action" type="button" aria-pressed="false">Otvori uređaj <span aria-hidden="true">↗</span></button>
+      </div>
 
       <div class="hero-badge badge-1"><span class="dot"></span> Bez dodira rukama</div>
       <div class="hero-badge badge-2"><span class="dot"></span> Folija samo na đonu</div>
@@ -591,5 +598,6 @@
 <script src="js/navigation.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/animations.js"></script>
+<script src="js/device-viewer.js"></script>
 </body>
 </html>
