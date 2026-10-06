@@ -25,7 +25,7 @@
     }
   });
   toggle.addEventListener('pointerleave', () => {
-    viewer.classList.remove('is-hovered'); update();
+    viewer.classList.remove('is-hovered'); if (hover.matches) pinned = false; update();
   });
   viewer.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
