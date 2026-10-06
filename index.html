@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/device-viewer.css">
+<link rel="stylesheet" href="css/photo-process.css">
 </head>
 <body>
 
@@ -119,119 +120,22 @@
       <p>Nema navlačenja navlaka preko cipele. ELIO zagreva termoskupljajuću foliju direktno ispod stopala — folija se skupi i priljubi samo uz đon, dok gornji deo obuće ostaje netaknut.</p>
     </div>
 
-    <div class="process-wrap">
-      <div class="process-stage" data-reveal>
-        <!-- Animacija procesa: bočni presek -->
-        <svg id="processSvg" viewBox="0 0 640 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animacija: stopalo se spušta na uređaj, folija se skuplja oko đona, korisnik podiže zaštićenu obuću">
-          <defs>
-            <linearGradient id="pBody" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#232A35"/><stop offset="1" stop-color="#0F141B"/>
-            </linearGradient>
-            <linearGradient id="pAlu" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#AEB6BF"/><stop offset=".5" stop-color="#E5E9EE"/><stop offset="1" stop-color="#9BA4AE"/>
-            </linearGradient>
-            <linearGradient id="pShoe" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#FDFDFD"/><stop offset="1" stop-color="#E9ECF1"/>
-            </linearGradient>
-            <linearGradient id="pFilm" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#7FB0FF" stop-opacity=".55"/><stop offset="1" stop-color="#1E6FEB" stop-opacity=".85"/>
-            </linearGradient>
-            <radialGradient id="pHeat" cx=".5" cy=".5" r=".5">
-              <stop offset="0" stop-color="#FF9F4A" stop-opacity=".8"/><stop offset=".6" stop-color="#FF9F4A" stop-opacity=".25"/><stop offset="1" stop-color="#FF9F4A" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-
-          <!-- pod -->
-          <line x1="20" y1="392" x2="620" y2="392" stroke="#D7DEE8" stroke-width="2"/>
-
-          <!-- uređaj: stub sa LCD + platforma (bočni prikaz) -->
-          <g id="pvDevice">
-            <rect x="470" y="120" width="120" height="236" rx="22" fill="url(#pBody)" stroke="#39424F" stroke-width="1.5"/>
-            <rect x="476" y="128" width="108" height="6" rx="3" fill="url(#pAlu)"/>
-            <rect x="484" y="146" width="92" height="64" rx="10" fill="#071528" stroke="#2E4E82" stroke-width="1.5"/>
-            <text id="lcdText" x="530" y="174" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="12.5" fill="#7FB0FF" letter-spacing="1.5">SPREMAN</text>
-            <rect x="496" y="188" width="68" height="6" rx="3" fill="#123B75"/>
-            <rect id="lcdProgress" x="496" y="188" width="68" height="6" rx="3" fill="#1E6FEB"/>
-            <circle id="sensorDot" cx="530" cy="228" r="6" fill="#22C55E"/>
-            <text x="530" y="252" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B7686" letter-spacing="1.6">SENZOR</text>
-            <rect x="492" y="272" width="76" height="10" rx="5" fill="#0A0E13" stroke="#39424F"/>
-            <text x="530" y="345" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="10.5" fill="#8D9AAC" letter-spacing="4.5">ELIO</text>
-            <!-- platforma -->
-            <rect x="70" y="356" width="520" height="36" rx="13" fill="url(#pBody)" stroke="#39424F" stroke-width="1.5"/>
-            <rect x="70" y="356" width="520" height="8" rx="4" fill="url(#pAlu)"/>
-            <!-- oznaka mesta -->
-            <path id="footMark" d="M140 372 C140 366 150 363 165 363 L300 363 C318 363 328 366 328 371 C328 377 318 380 300 380 L165 380 C150 380 140 377 140 372 Z" fill="none" stroke="#1E6FEB" stroke-width="2" stroke-dasharray="7 6"/>
-          </g>
-
-          <!-- toplota -->
-          <ellipse id="heatGlow" cx="232" cy="360" rx="130" ry="26" fill="url(#pHeat)" opacity="0"/>
-          <g id="heatWaves" stroke="#FF9F4A" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0">
-            <path d="M170 340 q5 -9 0 -18 q-5 -9 0 -18"/>
-            <path d="M232 336 q5 -9 0 -18 q-5 -9 0 -18"/>
-            <path d="M294 340 q5 -9 0 -18 q-5 -9 0 -18"/>
-          </g>
-
-          <!-- folija (labava, pre skupljanja) -->
-          <path id="filmLoose" d="M116 352 C116 338 140 330 168 330 L296 330 C330 330 352 340 352 352 C352 362 336 368 300 368 L166 368 C136 368 116 362 116 352 Z"
-                fill="none" stroke="#1E6FEB" stroke-width="2.5" stroke-dasharray="9 7" opacity="0"/>
-
-          <!-- noga + obuća (bočni profil) -->
-          <g id="foot">
-            <!-- nogavica -->
-            <path d="M196 78 L262 78 L268 196 L204 200 Z" fill="#2E3A4C"/>
-            <path d="M196 78 L262 78 L262 96 L196 96 Z" fill="#26303F"/>
-            <!-- obuća -->
-            <path id="shoeUpper" d="M188 262 C188 232 200 206 226 202 C250 198 262 210 268 230 C274 252 292 262 320 268 C342 272 352 280 352 292 L188 292 Z" fill="url(#pShoe)" stroke="#C9CFD6" stroke-width="2.5"/>
-            <path d="M214 232 L238 262 M240 226 L264 256" stroke="#C9CFD6" stroke-width="4" stroke-linecap="round"/>
-            <!-- đon -->
-            <path id="sole" d="M184 292 C184 285 194 281 208 281 L330 281 C348 281 358 287 358 294 C358 302 348 306 330 306 L208 306 C194 306 184 300 184 292 Z" fill="#39424F"/>
-            <!-- folija priljubljena uz đon (rezultat) -->
-            <path id="filmFit" d="M180 292 C180 283 192 278 208 278 L330 278 C351 278 363 286 363 295 C363 304 351 309 330 309 L208 309 C192 309 180 301 180 292 Z"
-                  fill="url(#pFilm)" stroke="#1E6FEB" stroke-width="2" opacity="0"/>
-          </g>
-
-          <!-- potvrda -->
-          <g id="doneBadge" opacity="0">
-            <rect x="60" y="82" width="196" height="46" rx="23" fill="#fff" stroke="#D9E5F8" stroke-width="1.5"/>
-            <circle cx="88" cy="105" r="13" fill="#1E6FEB"/>
-            <path d="M82 105 l4.5 4.5 L95 100" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <text x="110" y="110" font-family="Manrope,sans-serif" font-weight="800" font-size="14" fill="#0A1220">Đon zaštićen</text>
-          </g>
-        </svg>
+    <div class="photo-process" id="photoProcess" role="region" aria-label="Kako uređaj radi u šest koraka">
+      <div class="process-visual">
+        <div class="process-frames"><img class="process-frame active" src="assets/images/proces-1.webp" alt="Korisnik prilazi" width="1672" height="941" aria-hidden="false">
+<img class="process-frame" src="assets/images/proces-2.webp" alt="Stopalo na označeno mesto" width="1672" height="941" aria-hidden="true">
+<img class="process-frame" src="assets/images/proces-3.webp" alt="Senzor aktivira grejač" width="1672" height="941" aria-hidden="true">
+<img class="process-frame" src="assets/images/proces-4.webp" alt="Folija se skuplja oko đona" width="1672" height="941" aria-hidden="true">
+<img class="process-frame" src="assets/images/proces-5.webp" alt="Korisnik podiže nogu" width="1672" height="941" aria-hidden="true">
+<img class="process-frame" src="assets/images/proces-6.webp" alt="Đon je zaštićen" width="1672" height="941" aria-hidden="true"></div>
+        <div class="process-toolbar"><span id="processCounter">01 / 06</span><span id="processCaption">Korisnik prilazi</span><button type="button" id="processPlay" aria-label="Pauziraj animaciju">Pauziraj</button></div>
       </div>
-
-      <div data-reveal>
-        <div class="process-steps" id="processSteps">
-          <div class="p-step" data-step="0">
-            <span class="p-num">1</span>
-            <div><h4>Korisnik prilazi</h4><p>Uređaj je u stanju pripravnosti — LCD prikazuje status i preostalu količinu folije.</p></div>
-          </div>
-          <div class="p-step" data-step="1">
-            <span class="p-num">2</span>
-            <div><h4>Stopalo na označeno mesto</h4><p>Korisnik staje jednom nogom na obeleženu površinu platforme.</p></div>
-          </div>
-          <div class="p-step" data-step="2">
-            <span class="p-num">3</span>
-            <div><h4>Senzor aktivira grejač</h4><p>Pritisak pokreće grejanje — termoskupljajuća folija se zagreva nekoliko sekundi.</p></div>
-          </div>
-          <div class="p-step" data-step="3">
-            <span class="p-num">4</span>
-            <div><h4>Folija se skuplja oko đona</h4><p>Zagrejana folija se steže i prilagođava isključivo đonu obuće.</p></div>
-          </div>
-          <div class="p-step" data-step="4">
-            <span class="p-num">5</span>
-            <div><h4>Korisnik podiže nogu</h4><p>Nakon 5–10 sekundi postupak je završen za jedno stopalo.</p></div>
-          </div>
-          <div class="p-step" data-step="5">
-            <span class="p-num">6</span>
-            <div><h4>Đon je zaštićen</h4><p>Postupak se ponavlja za drugu nogu. Gornji deo obuće ostaje potpuno slobodan.</p></div>
-          </div>
-        </div>
-        <div class="process-note">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-          <span>Folija prekriva obuću bez navlaka i bez dodirivanja uređaja rukama.</span>
-        </div>
-      </div>
+      <div class="process-menu"><button type="button" class="process-step active" aria-pressed="true"><span class="process-number">01</span><span><strong>Korisnik prilazi</strong><span class="process-description">Uređaj je spreman za rad. LCD prikazuje status i preostalu količinu folije.</span></span></button>
+<button type="button" class="process-step" aria-pressed="false"><span class="process-number">02</span><span><strong>Stopalo na označeno mesto</strong><span class="process-description">Spustite jednu nogu na obeleženu površinu platforme.</span></span></button>
+<button type="button" class="process-step" aria-pressed="false"><span class="process-number">03</span><span><strong>Senzor aktivira grejač</strong><span class="process-description">Pritisak stopala pokreće grejanje termoskupljajuće folije.</span></span></button>
+<button type="button" class="process-step" aria-pressed="false"><span class="process-number">04</span><span><strong>Folija se skuplja oko đona</strong><span class="process-description">Zagrejana folija se steže i prilagođava đonu obuće.</span></span></button>
+<button type="button" class="process-step" aria-pressed="false"><span class="process-number">05</span><span><strong>Korisnik podiže nogu</strong><span class="process-description">Nakon približno 3 sekunde podignite nogu sa platforme.</span></span></button>
+<button type="button" class="process-step" aria-pressed="false"><span class="process-number">06</span><span><strong>Đon je zaštićen</strong><span class="process-description">Folija je postavljena. Ponovite postupak za drugu nogu.</span></span></button><p class="process-footnote">Bez dodira rukama · Folija samo na đonu</p></div>
     </div>
   </div>
 </section>
@@ -599,5 +503,6 @@
 <script src="js/ui.js"></script>
 <script src="js/animations.js"></script>
 <script src="js/device-viewer.js"></script>
+<script src="js/photo-process.js"></script>
 </body>
 </html>
