@@ -1,0 +1,13 @@
+ELIO — GitHub Pages
+
+Raspakujte ZIP. U GitHub repozitorijum dodajte index.html, style.css, app.js i ceo folder assets. index.html mora biti u korenu repozitorijuma, ne unutar dodatnog foldera.
+
+Za probu bez menjanja postojećeg sajta napravite novi javni repozitorijum, npr. elio-proba.
+
+U Settings > Pages izaberite Deploy from a branch, zatim main i / (root), pa Save. Sačekajte objavu i otvorite adresu prikazanu u Pages.
+
+Ne postavljajte ZIP kao jedini fajl. Postavite raspakovani sadržaj, uključujući assets. Za lokalnu probu otvorite index.html.
+
+Kako radi: držite klik ili prst dok traje primena folije (3 sekunde nakon spuštanja). Puštanje podiže stopalo.
+
+Uređaj: pomerajte miš ili prst preko slike za kružno otkrivanje unutrašnjosti.
